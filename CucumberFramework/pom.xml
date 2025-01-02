@@ -1,8 +1,12 @@
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>CucumberFramework</groupId>
   <artifactId>CucumberFramework</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+    <aspectj.version>1.9.7</aspectj.version>
+  </properties>
   
   <dependencies>
   
@@ -89,18 +93,77 @@
     <version>2.23.1</version>
     <scope>test</scope>
 </dependency>
-
-
-
-
-
-
-
-
   </dependencies>
   
   
- 
+  	<build>
+
+  <pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.1</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+				
+				
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.0.0-M3</version>
+					<configuration>
+						<systemPropertyVariables>
+							<isHeadless>false</isHeadless>
+							<API>false</API>
+						</systemPropertyVariables>
+						<testFailureIgnore>true</testFailureIgnore>
+						<argLine>
+						-javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
+					</argLine>
+						
+						
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.aspectj</groupId>
+							<artifactId>aspectjweaver</artifactId>
+							<version>${aspectj.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.jetty</groupId>
+					<artifactId>jetty-maven-plugin</artifactId>
+					<version>9.2.10.v20150310</version>
+					<configuration>
+						<webAppSourceDirectory>${project.build.directory}/site/allure-maven-plugin</webAppSourceDirectory>
+						<stopKey>stop</stopKey>
+						<stopPort>1234</stopPort>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>net.masterthought</groupId>
+					<artifactId>maven-cucumber-reporting</artifactId>
+					<version>5.0.0</version>
+					<executions>
+						<execution>
+							<id>execution</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>generate</goal>
+							</goals>
+							
+						</execution>
+					</executions>
+									</plugin>
+
+ </plugins>
+ </pluginManagement>
+  	</build>
   
  
   

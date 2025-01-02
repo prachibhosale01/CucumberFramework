@@ -3,17 +3,22 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+
+
+
 import java.time.Duration;
 
 public class AccountPage 
 {
 
 	public WebDriver driver;
+
 	
 	public AccountPage(WebDriver driver) 
 	{
       this.driver = driver;
       PageFactory.initElements(this.driver, this);
+     
     }
 	
 	By appLauncher = By.xpath("//button[@title='App Launcher']");
@@ -41,6 +46,8 @@ public class AccountPage
     {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.findElement(searchAccount).sendKeys("Accounts");
+		
+		
     }
 	
 	

@@ -1,5 +1,6 @@
 Feature: Login Functionality
- 
+
+@sanity
 Scenario:
  
 Given User launch the chrome browser

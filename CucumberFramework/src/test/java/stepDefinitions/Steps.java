@@ -8,14 +8,16 @@ import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-
+import org.junit.After;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -216,7 +218,14 @@ public class Steps extends BaseClass
 			}
 
 
-
+@After
+public void takeScreenshot(Scenario scenario)
+{
+	String screenShotName = scenario.getName().toUpperCase().replaceAll( " ", "_");
+	byte[] srcLocation = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+	scenario.attach(srcLocation, "image/png", screenShotName);
+	
+}
 			
 
 

@@ -1,5 +1,6 @@
 Feature:  Object creation
 
+@sanity
 Scenario: Account record creation
 
 Given User launch the chrome browser
@@ -19,7 +20,7 @@ And click on save button
 
 
 
-
+@smoke
 Scenario: Lead record creation
 
 Given User launch the chrome browser

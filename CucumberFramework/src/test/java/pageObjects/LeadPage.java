@@ -7,18 +7,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import utilities.WaitHelper;
+
 
 public class LeadPage 
 {
 	public WebDriver driver;
-	WaitHelper waithelper;
+
 	
 	public LeadPage(WebDriver driver) 
     {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
-        waithelper = new WaitHelper(this.driver);
+     
     }
 	
 	By appLauncher = By.xpath("//button[@title='App Launcher']");
@@ -33,7 +33,7 @@ public class LeadPage
 	public void clickOnApplauncher() throws InterruptedException
 	{
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
-	driver.findElement(appLauncher).click();
+	driver.findElement(appLauncher);
 	
 	}
 	
