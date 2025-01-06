@@ -10,11 +10,14 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features=".//Features/Accounts.feature",
-                glue="stepDefinitions", 
+                glue={"stepDefinitions"}, 
                 dryRun=false,
                
-                plugin= {"pretty","html:target/cucumber-reports/cucumber.html"},
-                tags= "@smoke"
+                plugin= {"pretty","html:target/cucumber-reports/cucumber.html",
+                		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+
+
+               
                 
 
             

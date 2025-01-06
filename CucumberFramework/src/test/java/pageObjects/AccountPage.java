@@ -24,7 +24,7 @@ public class AccountPage
 	By appLauncher = By.xpath("//button[@title='App Launcher']");
 	By searchAccount = By.xpath("//input[@type='search' and @role='combobox']");
 	By selectAccount= By.xpath("//a[@id='Account']//b[contains(text(),'Accounts')]");
-	By newAccount = By.xpath("//button[@name='New']");
+	By newAccount = By.xpath("//button[@name='Ne']");
 	By accountRecordType = By.xpath("//span[text()='Accounts']");
 	By nextButton = By.xpath("//span[text()='Next']");
 	By lastName = By.xpath("//input[@class='slds-input' and @name='Name']");

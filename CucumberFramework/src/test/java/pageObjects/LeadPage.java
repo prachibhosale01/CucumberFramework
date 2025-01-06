@@ -33,7 +33,7 @@ public class LeadPage
 	public void clickOnApplauncher() throws InterruptedException
 	{
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
-	driver.findElement(appLauncher);
+	driver.findElement(appLauncher).click();;
 	
 	}
 	

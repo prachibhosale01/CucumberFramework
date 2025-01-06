@@ -13,6 +13,7 @@ import pageObjects.LeadPage;
 import pageObjects.LoginPage;
 
 
+
 public class BaseClass 
 {
 
@@ -22,6 +23,8 @@ public class BaseClass
 	public LeadPage leadPage;
 	public Logger log;
 	public Properties configProp;
+	
+	
 	
 	
 	

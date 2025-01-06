@@ -1,7 +1,7 @@
 Feature: Login Functionality
 
 @sanity
-Scenario:
+Scenario: Login functionality
  
 Given User launch the chrome browser
 When user opens the url "https://login.salesforce.com"
